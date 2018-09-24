@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX","output/HTML-CSS"],
+        extensions: ["tex2jax.js"],
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+        },
+     "HTML-CSS": {
+      styles: {
+        ".MathJax .mo, .MathJax .mi": {}
+      }
+    }
+    });
+    </script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    });
+
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+    </script>
+
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <title>
+    
+      No tiling by convex heptagons &middot; Semidoc
+    
+  </title>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/theorems.css">
+
+  <!-- Icons -->
+  <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">-->
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link href='http://semidoc.github.io/feed.xml' rel='alternate' type='application/atom+xml'>
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <div class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Semidoc</a>
+
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/about/">About</a></small>
+          
+              &nbsp;&nbsp;&nbsp;<small><a href="/archive/">Archive</a></small>
+          
+
+        </h3>
+      </div>
+
+      <div class="post">
+  <h1 class="post-title">No tiling by convex heptagons</h1>
+  <span class="post-date">09 Mar 2018</span>
+  <p>Fourth post of the GT CoA series, see 
+<a href="https://semidoc.github.io/information-communication">here</a> for the introduction.</p>
+
+<p>The talk related to this post was given by 
+<a href="https://perso.ens-lyon.fr/michael.rao/">Michaël Rao</a> on his recent result 
+about <a href="https://en.wikipedia.org/wiki/Pentagonal_tiling">pentagonal tilings</a>. 
+This topic has been covered in many places (see for example
+<a href="https://www.quantamagazine.org/pentagon-tiling-proof-solves-century-old-math-problem-20170711/">Quanta magazine</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> 
+and this <a href="https://lejournal.cnrs.fr/videos/le-theoreme-du-carreleur">video</a>. 
+This post will focus on another aspect: what about heptagonal tilings?
+More precisely, how to show that there is no tiling of the plane with a convex 
+heptagonal tile?</p>
+
+<p>We first present a simple heurisitic proof that gives the intuition about why this holds, 
+and then a more detailed proof. The first one uses simple geometry, the second is 
+graph theoretical.</p>
+
+<h1 id="first-heuristic-proof-via-double-counting-of-the-angles">First (heuristic) proof via double-counting of the angles</h1>
+
+<p>Let a <em>contact point</em> be a place where three or more tiles meet. Without loss of 
+generality wa can assume that tiles only meet at vertices, that is there is no 
+contact point in the interior of an edge, it is always at an endpoint.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>As the <a href="https://en.wikipedia.org/wiki/Polygon#Angles">sum of the interior angles of an $n$-gon</a> 
+is $(n-2)\times 180$ degrees, for an heptagon it is $5\times 180=900$ degrees. 
+The average degree is $900/7\approx 129$ degrees. Which means that at one 
+contact point there are in average $360/129\approx 2.8 $ heptagons meeting. 
+This does not make sense because at every contact point there should be at least 
+three tiles.</p>
+
+<h1 id="second-proof-with-planar-graphs">Second proof with planar graphs.</h1>
+
+<h2 id="first-attempt-via-the-degree">First attempt via the degree</h2>
+<p>Take an infinite tiling, and draw the following graph. In the middle of each 
+tile draw a vertex, and between two vertices that represent adjacent tiles, draw 
+an edge. This graph is infinite and planar. As the tiles are convex, there are at 
+least seven different tiles adjacent to it, and then the minimum degree of a 
+vertex in the graph is seven.</p>
+
+<p>If you are used to planar graphs, you may think that this is enough to conclude. 
+Indeed, it is known that the average degree of panar graphs is strictly smaller 
+than six 
+(see for example <a href="https://en.wikipedia.org/wiki/Planar_graph#Average_degree">here</a>), 
+and the contradiction follows. Actually this is not enough because this average 
+degree upper bound holds only in finite graph. As a counter-example to this in 
+infinite graphs, consider an infinite regular tree with arbitrary large degree $d$ ; 
+it is a planar graph and it has average degree $d$.</p>
+
+<h2 id="euler-formula-on-the-dual">Euler formula on the dual</h2>
+<p>The degree bound comes form the classic tool for planar graphs,
+<a href="https://en.wikipedia.org/wiki/Euler_characteristic#Plane_graphs">Euler’s formula</a>. 
+It states that  $|V|-|E|+|F|=2$ for finite planar graphs, where $V$ is the set of 
+nodes, $E$ is the set of edges, and $F$ is the set of faces. The problem 
+is that it works only for finite graphs. We will consider a large enough part of 
+the infinite graph and use Euler formula to prove the result.</p>
+
+<p>This can probably be achieved in the graph we have defined, but it is more 
+convenient on its dual. Given a tiling, consider every place where three 
+or more tiles meet as a vertex, and the edges of the tiles are the edges of the 
+graph. Basically drawing the tiling is drawing the graph.</p>
+
+<p>Now consider a ball of radius $r$ much larger than the size of the tile, and the 
+tiles that are at least partilly in this ball. There 
+is order of $r^2$ tiles strictly inside the ball and $O(r)$ tiles at the boundary.
+Note that the tiles are the faces of the planar graph (except the outer face 
+that is not a tile). A similar thing holds for 
+vertices: there are $\Theta(r)$ vertices that are at the boundary, call them 
+boundary nodes ($V_b$), and order of  $r^2$ that are strictly inside the graph, 
+called interior nodes ($V_i$).</p>
+
+<p>We double-count edges. For every edge, divide it lengthwise into two 
+half-edges. There are clearly $2|E|$ half-edges. Also every face except the 
+outerface is a tile, so contributes seven half-edges. The number of half-edges 
+of the outerface is in $O(r)$. Thus $2|E|=7|F|+O(r)$.</p>
+
+<p>We now count the corners (or interior angles) of tiles. Every tile has seven 
+corners, thus this number is exactly $7|F|$. As every interior node contributes 
+at least three corners, $7|F|\geq 3|V_i|$.</p>
+
+<p>Now using that $|V|=|V_i|+|V_b|$, then $|E|=\frac{7}{2}|F|+O(r)$ and finally 
+$|F|\geq \frac{3}{7}|V_i|$ one gets: $-\frac{15}{14}V_i+V_b-O(r)\geq 2$. This is 
+not possible because $V_i$ has a higher order of magnitude than the two other 
+terms, thus the asymptotics should go to $-\infty$.</p>
+
+<h4 id="notes-et-footnotes">Notes et footnotes</h4>
+<p>Thanks to Michaël Rao for discussions.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>There exists a translation in French, in <a href="https://www.pourlascience.fr/sd/mathematiques/un-point-final-au-probleme-des-pavages-pentagonaux-du-plan-12669.php">Pour la science</a>.&nbsp;<a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>This would need a proof, but roughly, having a contact point in the middle of an edge only make the argument stronger, as it forces the other angles to be small.&nbsp;<a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/godin-mealy">
+            Introduction to Mealy automata, Grigorchuk group and the Burnside problem
+            <small>26 Jun 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/greedyMIS">
+            Greedy algorithm for maximum independent set
+            <small>29 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/mags">
+            Magazines, rubriques et cie.
+            <small>15 Jan 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+      
+
+
+
+      <div class="footer">
+        <p>
+          &copy; 2018. All rights reserved.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
