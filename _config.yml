@@ -9,10 +9,10 @@ highlighter:         rouge
 permalink:        pretty
 
 # Setup
-title:            Semidoc
+title:            Notes discrètes
 tagline:          'Blog'
-url:              http://semidoc.github.io
-shorturl:         semidoc.github.io
+url:              http://notes-discretes.github.io
+shorturl:         notes-discretes.github.io
 
 author:
   name:           ''
@@ -23,7 +23,7 @@ paginate:         1
 version:          1.0.0
 
 github:
-  repo:           github.com/semidoc/semidoc.github.io
+  repo:           github.com/notes-discretes/notes-discretes.github.io
 
 # This is the list of pages to include in the header of the website.
 pages_list:
